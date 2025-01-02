@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('original_url');
             $table->string('shortened_url')->unique();
             $table->timestamps();
+            $table->index('original_url');
         });
     }
 
