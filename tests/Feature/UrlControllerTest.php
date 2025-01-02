@@ -19,7 +19,7 @@ class UrlControllerTest extends TestCase
         $response = $this->getJson('api/1/decode?shortened_url=' . $url->shortened_url);
 
         $response->assertStatus(200)
-            ->assertJsonStructure(['url']);
+            ->assertJsonPath('url', $url->original_url);
     }
 
     public function test_decode_url_endpoint_requires_shortened_url_params(): void
